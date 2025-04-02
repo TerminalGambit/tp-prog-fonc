@@ -1,0 +1,13 @@
+OCAML=ocamlfind ocamlc
+PACKAGES=-package graphics
+CMA=make.cma
+SRC=tp5.ml
+OUT=tp5
+
+all: $(OUT)
+
+$(OUT): $(SRC)
+	$(OCAML) $(PACKAGES) $(CMA) -o $(OUT) $(SRC)
+
+clean:
+	rm -f *.cmo *.cmi
