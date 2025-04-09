@@ -65,7 +65,7 @@ let odds_stream = sfilter is_odd (ints_from 0) ;;
 
 let () = sprint 10 odds_stream ;;
 
-let rec factorials =
+let factorials =
   let rec fact_aux n acc =
     lazy(Item(acc, (fact_aux (n + 1) (acc * (n + 1)))))
   in
@@ -73,3 +73,12 @@ let rec factorials =
 ;;
 
 let () = sprint 10 factorials ;;
+
+let fib =
+  let rec fib_aux a b =
+    lazy (Item(a, fib_aux b (a + b)))
+  in
+  fib_aux 0 1
+;;
+
+let () = sprint 10 fib ;;
